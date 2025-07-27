@@ -16,7 +16,7 @@ async def gemini(request: GeminiRequest):
 
     try:
         result = subprocess.run(
-            ["gemini", "-y", "-p", input_text],
+            ["gemini", "-m", "gemini-2.5-flash", "-y", "-p", input_text],
             capture_output=True,
             text=True,
             check=True
