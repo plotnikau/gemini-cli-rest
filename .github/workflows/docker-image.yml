@@ -1,0 +1,36 @@
+name: Docker Image CI
+
+on:
+  workflow_dispatch:
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Get the version
+      id: get_version
+      run: |
+        candidate=$(date +%s)
+        echo $candidate
+        echo ::set-output name=VERSION::${candidate}
+
+    ## Builds te docker image
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag gemini-cli-rest:${{ steps.get_version.outputs.VERSION }}
+
+    ## Publishes our image to Docker Hub 😎
+    - name: Publish to Registry
+      uses: elgohr/Publish-Docker-Github-Action@v5
+      with:
+        ## the name of our image
+        name: plotnikau/gemini-cli-rest
+        ## tag
+        tags: "latest,${{ steps.get_version.outputs.VERSION }}"
+        ## Here we pass in our Docker Username
+        username: ${{ secrets.DOCKER_USERNAME }}
+        ## and our Docker password which
+        password: ${{ secrets.DOCKER_PWD }}
