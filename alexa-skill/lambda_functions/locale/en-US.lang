@@ -1,0 +1,8 @@
+alexa_speak_welcome_message=Welcome!
+alexa_speak_next_message=Yes?
+alexa_speak_question=Anything else?
+alexa_speak_error=I didn't understand that.
+alexa_speak_help=You can ask me anything.
+alexa_speak_exit=Goodbye!;Bye!
+alexa_speak_processing=Thinking...
+alexa_speak_timeout=Timeout.

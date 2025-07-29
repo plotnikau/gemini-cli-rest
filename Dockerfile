@@ -13,8 +13,7 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Install gemini-cli and set ownership of global npm modules to root
-RUN npm install -g @google/gemini-cli && \
-    chown -R root:root /usr/local/lib/node_modules /usr/local/bin /usr/local/share
+RUN npm install -g @google/gemini-cli 
 
 COPY . .
 
