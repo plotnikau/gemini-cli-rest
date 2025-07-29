@@ -20,7 +20,7 @@ jobs:
 
     ## Builds te docker image
     - name: Build the Docker image
-      run: cd gemini-restd && docker build . --file Dockerfile --tag gemini-cli-rest:${{ steps.get_version.outputs.VERSION }}
+      run: cd gemini-rest && docker build . --file Dockerfile --tag gemini-cli-rest:${{ steps.get_version.outputs.VERSION }}
 
     ## Publishes our image to Docker Hub 😎
     - name: Publish to Registry
