@@ -34,5 +34,5 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         ## and our Docker password which
         password: ${{ secrets.DOCKER_PWD }}
-      ## The working directory for the build
-      workdir: gemini-rest
+        ## Dockerfile is inside gemini-rest, so we provide it as context
+        context: gemini-rest
