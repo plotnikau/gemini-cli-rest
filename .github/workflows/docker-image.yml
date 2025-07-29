@@ -25,6 +25,8 @@ jobs:
     ## Publishes our image to Docker Hub 😎
     - name: Publish to Registry
       uses: elgohr/Publish-Docker-Github-Action@v5
+      ## The working directory for the build
+      workdir: gemini-rest
       with:
         ## the name of our image
         name: plotnikau/gemini-cli-rest
